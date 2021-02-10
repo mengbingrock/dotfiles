@@ -1,3 +1,6 @@
+# set vim mode for bash prompt
+set -o vi
+export TERM=xterm-256color
 
 # Environment setup
 if [ -f ~/.env ]; then
@@ -21,3 +24,14 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 HISTIGNORE="$HISTIGNORE:jrnl *"
+
+# Auto-Jumpe
+#. /usr/share/autojump/autojump.sh
+
+# Bash show git branch
+. ~/.bash/git-prompt.sh # Show git branch name at command prompt
+export GIT_PS1_SHOWCOLORHINTS=true # Option for git-prompt.sh to show branch name in color
+
+# Terminal Prompt:
+# Include git branch, use PROMPT_COMMAND (not PS1) to get color output (see git-prompt.sh for more)
+export PROMPT_COMMAND='__git_ps1 "\w" "\n\\\$ "' # Git branch (relies on git-prompt.sh)

@@ -127,6 +127,10 @@ Plug 'junegunn/limelight.vim'          " Focus on current paragraph
 Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool
 Plug 'ron89/thesaurus_query.vim'       " Synonym query
 
+" cscope
+Plug 'brookhong/cscope.vim'
+
+
 " Other
 Plug 'wakatime/vim-wakatime'           " Wakatime time tracking
 Plug 'ihsanturk/neuron.vim'            " For neuron Zettelkasten
@@ -872,3 +876,15 @@ endfunction
 command! PrettyXML call DoPrettyXML()
 
 let g:ale_float_preview=1
+
+" tagbar
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+" open symbol defination in a vertical split
+nnoremap <C-w> \ :vert winc ]<CR>
+
+"========================================================================
+"Cscope
+"========================================================================
+
+
