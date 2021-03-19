@@ -128,7 +128,7 @@ Plug 'rhysd/vim-grammarous'            " GrammarCheck using LanguageTool
 Plug 'ron89/thesaurus_query.vim'       " Synonym query
 
 " cscope
-Plug 'brookhong/cscope.vim'
+" Plug 'brookhong/cscope.vim'
 
 
 " Other
@@ -557,6 +557,7 @@ let g:lightline.component_expand = {
    nnoremap <silent> <space>Y  :<C-u>CocList -A --normal yank<cr>
 
    command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+    
 
 endif
 
@@ -883,8 +884,25 @@ nnoremap <silent> <F9> :TagbarToggle<CR>
 " open symbol defination in a vertical split
 nnoremap <C-w> \ :vert winc ]<CR>
 
-"========================================================================
 "Cscope
 "========================================================================
 
+" add any cscope database in current directory
+let $CSCOPE_DB="/data/brahma/linux/cscope.out"
+if filereadable("cscope.out")
+    cs add cscope.out
+" else add the database pointed to by environment variable
+elseif $CSCOPE_DB != ""
+    cs add $CSCOPE_DB
+endif
 
+nnoremap  <leader>fs :cs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>fg :cs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>fc :cs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>ft :cs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>fe :cs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>ff :cs find f <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>fi :cs find i <C-R>=expand("<cword>")<CR><CR>
+nnoremap  <leader>fd :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+let g:cscope_open_location = 0

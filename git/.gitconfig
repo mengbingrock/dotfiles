@@ -1,7 +1,8 @@
 [user]
-	name = Jose Javier
-	email = 3844846+JJGO@users.noreply.github.com
-[push]
+    #name = Jose Javier
+    name = Mengbing Wang
+    #email = 3844846+JJGO@users.noreply.github.com
+	email = mengbing.wang@amd.com
 	default = simple
 [pull]
     rebase = false
@@ -49,4 +50,4 @@
     clean = git media clean %f
     smudge = git media smudge %f
 [init]
-	defaultBranch = main
+	defaultBranch = master
